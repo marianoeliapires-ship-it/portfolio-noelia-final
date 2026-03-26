@@ -1,10 +1,13 @@
 import React from "react";
 import "../styles/certificaciones.css";
 
+// 🔥 IMPORTAR IMÁGENES (CLAVE)
+import ccstNetwork from "../assets/certificaciones/ccst-network.jpg";
+import ccstCyber from "../assets/certificaciones/ccst_cybersecurity_xl.jpg";
+import databases from "../assets/certificaciones/databases.png";
+
 function Certificaciones() {
-
     return (
-
         <section className="certificaciones">
 
             <h2 className="titulo-cert">
@@ -18,29 +21,26 @@ function Certificaciones() {
             <div className="cert-container">
 
                 {/* CERTIFICACIONES */}
-
                 <div className="certificaciones-row">
 
                     <div className="cert-node">
-                        <img src="/certificaciones/ccst-network.jpg" alt="CCST Networking" />
+                        <img src={ccstNetwork} alt="CCST Networking" />
                         <p>CCST Networking</p>
                     </div>
 
                     <div className="cert-node">
-                        <img src="/certificaciones/ccst_cybersecurity_xl.jpg" alt="CCST Cybersecurity" />
+                        <img src={ccstCyber} alt="CCST Cybersecurity" />
                         <p>CCST Cybersecurity</p>
                     </div>
 
                     <div className="cert-node">
-                        <img src="/certificaciones/databases.png" alt="Databases" />
+                        <img src={databases} alt="Databases" />
                         <p>Databases</p>
                     </div>
 
                 </div>
 
-
                 {/* CURSOS */}
-
                 <div className="courses-row">
 
                     <div className="course-node">
@@ -58,9 +58,7 @@ function Certificaciones() {
             </div>
 
         </section>
-
     );
-
 }
 
 export default Certificaciones;

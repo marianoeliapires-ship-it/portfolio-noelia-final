@@ -1,5 +1,7 @@
 import Reveal from "../components/reveal";
 import "../styles/3ctecnicas.css";
+import tools from "../assets/tools.png";
+
 
 export default function Herramientas() {
     return (
@@ -12,7 +14,7 @@ export default function Herramientas() {
 
                 <div className="c3-layout">
 
-                    
+
 
                     {/* IZQUIERDA */}
                     <div className="c3-side">
@@ -45,7 +47,7 @@ export default function Herramientas() {
                     {/* CENTRO */}
                     <div className="c3-core">
                         <div className="c3-node">
-                            <img src="/src/assets/tools.png" alt="core" />
+                            <img src={tools} alt="core" />
                         </div>
                     </div>
 

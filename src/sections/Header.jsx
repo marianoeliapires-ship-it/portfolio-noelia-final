@@ -42,7 +42,7 @@ export default function Header() {
                 </h1>
 
                 <h2 className="text-[28px] mt-4">
-                    ADMINISTRADORA DE SISTEMAS EN FORMACIÓN
+                    ADMINISTRADORA DE SISTEMAS
                 </h2>
 
                 <p className="mt-2 tracking-widest code-style">
