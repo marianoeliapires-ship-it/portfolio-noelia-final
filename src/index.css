@@ -1,0 +1,2176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BASE */
+
+html,
+body {
+  height: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+  background: radial-gradient(circle at 20% 30%, #5a1c9c, #21003f);
+  color: white;
+}
+
+/* SECCIONES */
+
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  z-index: 2;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  text-align: center;
+}
+
+/* TIPOGRAFÍA */
+
+.tech-title {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 2px;
+}
+
+.code-style {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* GRID PROYECTOS */
+
+.projects-grid {
+
+  width: 90vw;
+  max-width: 1400px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 40px;
+
+}
+
+/* TARJETAS */
+
+.flip-card {
+
+  width: 100%;
+  height: 320px;
+
+  perspective: 1500px;
+  cursor: pointer;
+
+  transition: transform .3s;
+
+}
+
+/* HOVER FUTURISTA */
+
+.flip-card:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 213, 0.6),
+    0 0 40px rgba(0, 255, 213, 0.3);
+
+}
+
+/* INTERIOR */
+
+.flip-inner {
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  transition: transform .8s;
+  transform-style: preserve-3d;
+
+}
+
+/* GIRO */
+
+.flip-card.active .flip-inner {
+
+  transform: rotateY(180deg);
+
+}
+
+/* CARAS */
+
+.flip-front,
+.flip-back {
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 18px;
+
+  backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+
+  text-align: center;
+
+}
+
+/* FRENTE */
+
+.flip-front {
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+
+}
+
+/* DETRÁS */
+
+.flip-back {
+
+  transform: rotateY(180deg);
+  background: black;
+  overflow: hidden;
+
+}
+
+/* IMAGEN NORMAL */
+
+.flip-back img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 20px;
+
+  transition: transform .5s ease;
+
+}
+
+
+
+/* TARJETA AMPLIADA */
+
+.flip-card.active {
+
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(1.4);
+
+  width: 70vw;
+  height: 70vh;
+
+  z-index: 999;
+
+}
+
+
+/* ZOOM SUAVE */
+
+.flip-card.active img {
+
+  transform: scale(1.08);
+
+}
+
+/* BOTÓN CERRAR */
+
+.close-btn {
+
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+
+  border: none;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  z-index: 50;
+
+  transition: .3s;
+
+}
+
+.close-btn:hover {
+
+  background: #00ffd5;
+  color: black;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 340px;
+  }
+
+  .tech-title {
+    font-size: 40px;
+  }
+
+}
+
+/* ===== TERMINAL EFFECT ===== */
+
+.terminal-title {
+
+  letter-spacing: 4px;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 213, 0.7),
+    0 0 20px rgba(0, 255, 213, 0.5),
+    0 0 40px rgba(0, 255, 213, 0.4);
+
+}
+
+/* cursor terminal */
+
+.cursor {
+
+  margin-left: 5px;
+
+  animation: blink 1s infinite;
+
+  color: #00ffd5;
+
+}
+
+@keyframes blink {
+
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+
+}
+
+/* TERMINAL TITLE */
+
+.terminal-title {
+
+  letter-spacing: 4px;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 213, 0.8),
+    0 0 20px rgba(0, 255, 213, 0.6),
+    0 0 40px rgba(0, 255, 213, 0.4);
+
+}
+
+/* CURSOR TERMINAL */
+
+.cursor {
+
+  margin-left: 6px;
+
+  color: #00ffd5;
+
+  animation: blink 1s infinite;
+
+}
+
+@keyframes blink {
+
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+
+}
+
+/* TERMINAL TITLE */
+
+.terminal-title {
+
+  letter-spacing: 4px;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 213, 0.8),
+    0 0 20px rgba(0, 255, 213, 0.6),
+    0 0 40px rgba(0, 255, 213, 0.4);
+
+}
+
+/* CURSOR TERMINAL */
+
+.cursor {
+
+  margin-left: 6px;
+
+  color: #00ffd5;
+
+  animation: blink 1s infinite;
+
+}
+
+@keyframes blink {
+
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+
+}
+
+/* MOVIMIENTO SUAVE HEADER */
+
+.terminal-title {
+
+  animation:
+    float 6s ease-in-out infinite;
+
+}
+
+/* animación flotante */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+/* ===== PERFIL TECNICO LAYOUT ===== */
+
+.perfil-section {
+
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+}
+
+.perfil-container {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+
+  max-width: 1200px;
+
+  align-items: center;
+
+}
+
+/* TEXTO */
+
+.perfil-texto {
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  text-align: left;
+
+}
+
+/* FOTO */
+
+.perfil-imagen {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.perfil-imagen img {
+
+  width: 320px;
+
+  border-radius: 20px;
+
+  transition: all .4s ease;
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 213, 0.6),
+    0 0 40px rgba(0, 255, 213, 0.3);
+
+}
+
+/* ===== 1 FLOAT MOTION ===== */
+
+.float-element {
+
+  animation: floatMotion 6s ease-in-out infinite;
+
+}
+
+@keyframes floatMotion {
+
+  0% {
+    transform: translateY(0px)
+  }
+
+  50% {
+    transform: translateY(-12px)
+  }
+
+  100% {
+    transform: translateY(0px)
+  }
+
+}
+
+/* ===== 2 MATERIAL LIFT HOVER ===== */
+
+.lift-hover img:hover {
+
+  transform: translateY(-10px) scale(1.03);
+
+  box-shadow:
+    0 10px 40px rgba(0, 255, 213, 0.5),
+    0 0 30px rgba(0, 255, 213, 0.3);
+
+}
+
+/* ===== 3 FADE IN ===== */
+
+.fade-in-element {
+
+  animation: fadeIn 1.2s ease forwards;
+
+}
+
+@keyframes fadeIn {
+
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
+
+/* ===== 4 PARALLAX DRIFT ===== */
+
+.drift-element {
+
+  animation: drift 12s ease-in-out infinite;
+
+}
+
+@keyframes drift {
+
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px) {
+
+  .perfil-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .perfil-texto {
+    text-align: center;
+  }
+
+}
+
+/* PERFIL TECNICO */
+
+.perfil-container {
+
+  display: grid;
+
+  grid-template-columns: 1.3fr 0.7fr;
+
+  gap: 80px;
+
+  max-width: 1200px;
+
+  align-items: center;
+
+}
+
+/* TITULO */
+
+.perfil-title {
+
+  font-size: 48px;
+
+  margin-bottom: 25px;
+
+  letter-spacing: 3px;
+
+  text-align: left;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 213, 0.5),
+    0 0 20px rgba(0, 255, 213, 0.3);
+
+}
+
+/* LINEA TECH */
+
+.perfil-title::after {
+
+  content: "";
+
+  display: block;
+
+  width: 100px;
+
+  height: 3px;
+
+  margin-top: 14px;
+
+  background: #00ffd5;
+
+  box-shadow: 0 0 10px #00ffd5;
+
+}
+
+/* TEXTO */
+
+.perfil-parrafo {
+
+  font-size: 20px;
+
+  line-height: 1.9;
+
+  opacity: 0.9;
+
+  text-align: left;
+
+  max-width: 650px;
+
+}
+
+/* FOTO */
+
+.perfil-imagen img {
+
+  width: 260px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 213, 0.5),
+    0 0 30px rgba(0, 255, 213, 0.2);
+
+}
+
+/* ANIMACION SUAVE */
+
+.float-element {
+
+  animation: floatMotion 8s ease-in-out infinite;
+
+}
+
+@keyframes floatMotion {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(60px);
+
+  transition: all 1.2s ease;
+
+}
+
+.reveal.show {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+/* PERFIL TEXTO BOX */
+
+.perfil-texto-container {
+  max-width: 600px;
+}
+
+.perfil-title {
+  font-size: 36px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* CAJA TEXTO */
+
+.perfil-box {
+
+  position: relative;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(10px);
+
+}
+
+/* TEXTO JUSTIFICADO */
+
+.perfil-parrafo {
+
+  text-align: justify;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+}
+
+/* ESQUINAS DECORATIVAS */
+
+.perfil-box::before,
+.perfil-box::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 40px;
+  height: 40px;
+
+  border: 2px solid #00ffd5;
+
+}
+
+.perfil-box::before {
+
+  top: -10px;
+  left: -10px;
+
+  border-right: none;
+  border-bottom: none;
+
+}
+
+.perfil-box::after {
+
+  bottom: -10px;
+  right: -10px;
+
+  border-left: none;
+  border-top: none;
+
+}
+
+/* TARJETA FOTO */
+
+.perfil-card {
+
+  width: 260px;
+  height: 320px;
+
+  perspective: 1000px;
+
+}
+
+.perfil-card-inner {
+
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  transform-style: preserve-3d;
+
+  transition: transform .8s;
+
+}
+
+/* GIRO */
+
+.perfil-card:hover .perfil-card-inner {
+
+  transform: rotateY(180deg);
+
+}
+
+/* CARAS */
+
+.perfil-card-front,
+.perfil-card-back {
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 213, .5);
+
+}
+
+.perfil-card-front img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+.perfil-card-back {
+
+  transform: rotateY(180deg);
+
+  background: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.perfil-card-back img {
+
+  width: 90%;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+  .perfil-container {
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+  }
+
+  .perfil-title {
+    text-align: center;
+  }
+
+}
+
+/* =========================
+   PERFIL TECNICO
+========================= */
+
+.perfil-section {
+  min-height: 100vh;
+  padding: 100px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.perfil-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* TARJETA TEXTO */
+
+.perfil-card {
+  flex: 1;
+  max-width: 650px;
+
+  padding: 35px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: white;
+
+  line-height: 1.7;
+  text-align: justify;
+
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+.perfil-card:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+}
+
+/* FOTO PERFIL */
+
+.perfil-foto {
+  width: 260px;
+  height: 260px;
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+
+  transition: transform 0.4s ease;
+}
+
+.perfil-foto:hover {
+  transform: scale(1.05);
+}
+
+.perfil-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   PERFIL TECNICO
+========================= */
+
+.perfil-section {
+  min-height: 100vh;
+  padding: 100px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 60px;
+  color: white;
+}
+
+.perfil-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* TARJETA TEXTO */
+
+.perfil-card {
+  width: 550px;
+
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: white;
+
+  line-height: 1.7;
+  text-align: justify;
+
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+
+  transition: all 0.3s ease;
+}
+
+.perfil-card:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+/* =========================
+   FOTO + QR FLIP
+========================= */
+
+.flip-card {
+  width: 320px;
+  height: 320px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.8s;
+
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25);
+}
+
+.flip-card-front img,
+.flip-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CARA QR */
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: black;
+}
+
+/* =========================
+   PERFIL TECNICO
+========================= */
+
+.perfil-section {
+  min-height: 100vh;
+  padding: 120px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 40px;
+  margin-bottom: 60px;
+  color: white;
+}
+
+/* CONTENEDOR */
+
+.perfil-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+/* TARJETA TEXTO */
+
+.perfil-card {
+  position: relative;
+
+  width: 700px;
+
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: white;
+
+  line-height: 1.8;
+  text-align: justify;
+
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+/* ESQUINAS DECORATIVAS */
+
+.corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+
+  border-color: #00ffff;
+}
+
+.corner-top-left {
+  top: -10px;
+  left: -10px;
+
+  border-top: 3px solid #00ffff;
+  border-left: 3px solid #00ffff;
+}
+
+.corner-bottom-right {
+  bottom: -10px;
+  right: -10px;
+
+  border-bottom: 3px solid #00ffff;
+  border-right: 3px solid #00ffff;
+}
+
+/* =========================
+   FOTO + QR
+========================= */
+
+.flip-card {
+  width: 320px;
+  height: 320px;
+
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.8s;
+
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25);
+}
+
+.flip-card-front img,
+.flip-card-back img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: black;
+}
+
+/* =========================
+   PERFIL TECNICO
+========================= */
+
+.perfil-section {
+  min-height: 100vh;
+  padding: 120px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TITULO */
+
+.perfil-title {
+  font-family: "Orbitron", sans-serif;
+  /* misma estética que header */
+  font-size: 42px;
+  color: white;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* CONTENEDOR */
+
+.perfil-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  flex-wrap: wrap;
+}
+
+/* TARJETA TEXTO */
+
+.perfil-card {
+  width: 700px;
+
+  padding: 45px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  line-height: 1.8;
+  text-align: justify;
+
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.12);
+
+  transition: all 0.3s ease;
+}
+
+.perfil-card:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.25);
+}
+
+.perfil-card p {
+  margin-bottom: 16px;
+}
+
+/* FOTO + QR */
+
+.flip-card {
+  width: 330px;
+  height: 330px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.8s;
+
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.25);
+}
+
+.flip-card-front img,
+.flip-card-back img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: black;
+}
+
+/* AJUSTE SOLO DEL RECUADRO DE PERFIL */
+
+.perfil-box {
+  position: relative;
+  padding: 42px 38px;
+  width: 800px;
+  min-height: 440px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.perfil-parrafo {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* FORZAR TAMAÑO DEL RECUADRO DE PERFIL */
+
+.perfil-card {
+  width: 780px !important;
+  min-height: 430px !important;
+  padding: 40px 36px !important;
+}
+
+.perfil-card p {
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  text-align: justify !important;
+  margin-bottom: 14px !important;
+}
+
+/* =========================
+   EFECTO ESCANEO IA
+========================= */
+
+.perfil-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.perfil-card::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -20%;
+  width: 140%;
+  height: 60%;
+  background: linear-gradient(to bottom,
+      rgba(0, 255, 213, 0) 0%,
+      rgba(0, 255, 213, 0.08) 35%,
+      rgba(0, 255, 213, 0.22) 50%,
+      rgba(0, 255, 213, 0.08) 65%,
+      rgba(0, 255, 213, 0) 100%);
+  transform: rotate(-8deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.perfil-card:hover::after {
+  opacity: 1;
+  animation: scanIA 1.6s ease-in-out;
+}
+
+@keyframes scanIA {
+  0% {
+    top: -120%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    top: 140%;
+    opacity: 0;
+  }
+}
+
+/* =========================
+   COMPETENCIAS - ESTÉTICA TIPO ANTIGRAVITY
+========================= */
+
+.competencias-section {
+  min-height: 100vh;
+  padding: 110px 6vw 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 42px;
+}
+
+.competencias-header {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.competencias-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+  margin-bottom: 14px;
+}
+
+.competencias-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.02;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.competencias-subtitle {
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.competencias-grid {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.competencia-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.competencia-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(124, 240, 255, 0.35);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.22),
+    0 0 30px rgba(0, 229, 255, 0.10);
+}
+
+.competencia-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.competencia-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease, filter 0.45s ease;
+}
+
+.competencia-card:hover .competencia-image {
+  transform: scale(1.04);
+  filter: brightness(1.04);
+}
+
+.competencia-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px 24px 24px;
+  text-align: left;
+  flex: 1;
+}
+
+.competencia-content h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+.competencia-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  width: 100%;
+}
+
+.competencia-content li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.competencia-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7ff7ff;
+  box-shadow: 0 0 10px rgba(127, 247, 255, 0.8);
+}
+
+.competencia-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  opacity: 0.88;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.competencia-link::after {
+  content: "›";
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.competencia-card:hover .competencia-link {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* EFECTO SUAVE TIPO ANTIGRAVITY */
+
+.antigravity-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -20% -35% -20%;
+  height: 180px;
+  background:
+    radial-gradient(circle, rgba(92, 173, 255, 0.20) 0%, rgba(92, 173, 255, 0.08) 35%, rgba(92, 173, 255, 0) 72%);
+  filter: blur(22px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.antigravity-card::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -30%;
+  width: 160%;
+  height: 55%;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(148, 240, 255, 0.06) 30%,
+      rgba(148, 240, 255, 0.16) 50%,
+      rgba(148, 240, 255, 0.05) 70%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: rotate(-8deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.antigravity-card:hover::after {
+  opacity: 1;
+  animation: antiScan 1.4s ease;
+}
+
+@keyframes antiScan {
+  0% {
+    top: -120%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 120%;
+    opacity: 0;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .competencias-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .competencias-section {
+    padding: 90px 20px 60px;
+  }
+
+  .competencias-header {
+    text-align: center;
+  }
+
+  .competencias-title {
+    text-align: center;
+  }
+
+  .competencias-subtitle {
+    margin: 0 auto;
+  }
+
+  .competencias-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .competencia-card {
+    min-height: auto;
+  }
+}
+
+/* AJUSTES COMPETENCIAS */
+
+.competencias-header {
+  margin-bottom: 10px;
+}
+
+.competencias-title {
+  margin-bottom: 0;
+}
+
+/* ocultar elementos que ya no quieres */
+.competencias-eyebrow,
+.competencias-subtitle,
+.competencia-link {
+  display: none !important;
+}
+
+/* ajustar imagen de redes */
+.img-redes {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+}
+
+/* opcional: que no se mueva demasiado al hover */
+.competencia-card:hover .img-redes {
+  transform: scale(1.12);
+}
+
+/* IGUALAR TITULO DE COMPETENCIAS AL DE PERFIL TECNICO */
+
+.competencias-title {
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 42px !important;
+  color: white !important;
+  text-align: center !important;
+  margin-bottom: 60px !important;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+p,
+span,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* TITULO COMPETENCIAS IGUAL QUE PERFIL TECNICO */
+
+.competencias-title {
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 400 !important;
+  color: white !important;
+  text-align: center !important;
+  margin-bottom: 60px !important;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+  position: relative;
+  display: inline-block;
+}
+
+.competencias-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  margin: 14px auto 0;
+  background: #00f5ff;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+  border-radius: 999px;
+}
+
+/* TITULO CENTRADO + RAYA DEBAJO */
+
+.perfil-title,
+.competencias-title {
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 300 !important;
+  color: white !important;
+  text-align: center !important;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 auto 60px auto !important;
+  width: 100% !important;
+}
+
+.perfil-title::after,
+.competencias-title::after {
+  content: "" !important;
+  display: block !important;
+  width: 120px !important;
+  height: 4px !important;
+  margin-top: 14px !important;
+  background: #00f5ff !important;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.8) !important;
+  border-radius: 999px !important;
+}
+
+/* TITULO CON RAYA JUSTO BAJO EL NUMERO */
+
+.competencias-title {
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 300 !important;
+  color: white !important;
+
+  text-align: left !important;
+
+  width: fit-content !important;
+  margin: 0 auto 60px auto !important;
+
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+  position: relative;
+}
+
+/* LINEA */
+
+.competencias-title::after {
+  content: "";
+  display: block;
+
+  width: 120px;
+  height: 4px;
+
+  margin-top: 14px;
+
+  background: #00f5ff;
+
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+
+  border-radius: 999px;
+}
+
+/* RAYA CON BRILLO ANIMADO */
+
+.competencias-title::after {
+  content: "" !important;
+  display: block !important;
+  width: 120px !important;
+  height: 4px !important;
+  margin-top: 14px !important;
+  margin-left: 0 !important;
+  background: #00f5ff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.8) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.competencias-title::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: -18px !important;
+  width: 120px !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 255, 255, 0.15) 80%,
+      rgba(255, 255, 255, 0) 100%) !important;
+  background-size: 60px 100% !important;
+  background-repeat: no-repeat !important;
+  animation: brilloLineaCompetencias 2.2s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes brilloLineaCompetencias {
+  0% {
+    background-position: -70px 0;
+    opacity: 0.3;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    background-position: 140px 0;
+    opacity: 0.3;
+  }
+}
+
+/* RESTAURAR RECTANGULOS DE PROYECTOS */
+
+.projects-grid {
+  width: 90vw !important;
+  max-width: 1400px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 40px !important;
+}
+
+.projects-grid .flip-card {
+  width: 100% !important;
+  height: 320px !important;
+  perspective: 1500px !important;
+  cursor: pointer !important;
+  transition: transform 0.3s !important;
+}
+
+.projects-grid .flip-front,
+.projects-grid .flip-back {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 18px !important;
+  backface-visibility: hidden !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  padding: 40px !important;
+  text-align: center !important;
+}
+
+.projects-grid .flip-front {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.projects-grid .flip-back {
+  transform: rotateY(180deg) !important;
+  background: black !important;
+  overflow: hidden !important;
+}
+
+/* QUITAR EL AJUSTE QUE LOS HACIA GIGANTES */
+.projects-grid .flip-card.active {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(1.4) !important;
+  width: 70vw !important;
+  height: 70vh !important;
+  z-index: 999 !important;
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .projects-grid .flip-card {
+    height: 340px !important;
+  }
+}
+
+/* TITULOS DE LAS TARJETAS DE PROYECTOS */
+
+.projects-grid .flip-front h3,
+.projects-grid .flip-back h3 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 6px !important;
+  margin-bottom: 16px !important;
+  line-height: 1.3 !important;
+}
+
+.project-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.project-subtitle {
+  margin-bottom: 10px;
+}
+
+
+/* =========================
+   DARK / LIGHT MODE FIX
+========================= */
+
+/* modo oscuro (por defecto) */
+html.dark body {
+  background: radial-gradient(circle at 20% 30%, #5a1c9c, #21003f);
+  color: white;
+}
+
+/* modo claro */
+html.light body {
+  background: #f6f7fb;
+  color: #111;
+}
+
+/* tarjetas en modo claro */
+html.light .perfil-card,
+html.light .competencia-card,
+html.light .flip-front {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* títulos en claro */
+html.light h1,
+html.light h2,
+html.light h3 {
+  color: #111;
+}
+
+/* =========================
+   LIGHT MODE MORADO
+========================= */
+
+html.light body {
+
+  background:
+    radial-gradient(circle at 20% 30%, #c9b3ff, #7a4cff);
+
+  color: #0f0f0f;
+
+}
+
+/* título principal */
+
+html.light .terminal-title {
+
+  color: #0a0a0a;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 213, .6),
+    0 0 20px rgba(0, 255, 213, .4),
+    0 0 40px rgba(0, 255, 213, .2);
+
+}
+
+/* subtitulo */
+
+html.light h2,
+html.light h3,
+html.light p {
+
+  color: #1a1a1a;
+
+}
+
+/* tarjetas */
+
+html.light .perfil-card,
+html.light .competencia-card,
+html.light .flip-front {
+
+  background: rgba(255, 255, 255, .55);
+
+  border: 1px solid rgba(0, 0, 0, .1);
+
+  backdrop-filter: blur(10px);
+
+}
+
+/* lineas neon */
+
+html.light .perfil-title::after,
+html.light .competencias-title::after {
+
+  background: #00eaff;
+
+}
+
+
+/* =========================
+   FIX CONTRASTE MODO CLARO
+========================= */
+
+/* TITULOS */
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light .section-title,
+html.light .perfil-title,
+html.light .competencias-title {
+
+  color: #0b0b0b !important;
+
+}
+
+/* TEXTO NORMAL */
+
+html.light p,
+html.light span,
+html.light li {
+
+  color: #111 !important;
+
+}
+
+/* TEXTO DE METODOLOGÍA */
+
+html.light .metodologia-section p {
+
+  color: #111 !important;
+
+}
+
+/* TEXTO DE LOS PASOS */
+
+html.light .metodologia-step {
+
+  color: #111 !important;
+
+}
+
+/* TEXTO AZUL FINAL */
+
+html.light .metodologia-frase {
+
+  color: #007c8a !important;
+
+}
+
+/* ICONOS */
+
+html.light .metodologia-icon {
+
+  filter: brightness(0.8);
+
+}
+
+/* =========================
+   FIX FINAL HEADER (NOELIA)
+========================= */
+
+h1.terminal-title {
+
+  font-size: clamp(4rem, 7vw, 7rem) !important;
+
+  font-weight: 700 !important;
+
+  letter-spacing: 4px !important;
+
+  text-align: center !important;
+
+  color: #ffffff !important;
+
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(0, 255, 213, 0.8),
+    0 0 28px rgba(0, 255, 213, 0.6) !important;
+
+  animation: none !important;
+  /* quitamos el float que tenías */
+}
+
+/* cursor limpio */
+h1.terminal-title .cursor {
+  margin-left: 6px;
+  color: #00ffd5;
+  animation: blink 1s infinite;
+}
+
+/* =========================
+   FIX TITULOS GLOBAL (SIN HEADER)
+========================= */
+
+/* TODOS los títulos EXCEPTO el header */
+h1:not(.terminal-title),
+h2,
+.section-title,
+.perfil-title,
+.competencias-title {
+
+  font-family: 'Space Grotesk', sans-serif !important;
+
+  font-size: clamp(2.2rem, 3vw, 3rem) !important;
+
+  font-weight: 600 !important;
+
+  letter-spacing: 0.5px !important;
+
+  text-align: center !important;
+
+  color: #c4b5fd !important;
+
+  margin-bottom: 2rem !important;
+
+  text-shadow:
+    0 0 10px rgba(139, 92, 246, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.2) !important;
+}
+
+/* línea decorativa uniforme */
+h1:not(.terminal-title)::after,
+h2::after,
+.section-title::after,
+.perfil-title::after,
+.competencias-title::after {
+
+  content: "" !important;
+
+  display: block !important;
+
+  margin: 0.6rem auto 0 !important;
+
+  width: 60px !important;
+
+  height: 2px !important;
+
+  background: linear-gradient(90deg,
+      transparent,
+      #8b5cf6,
+      transparent) !important;
+
+  opacity: 0.7 !important;
+}
